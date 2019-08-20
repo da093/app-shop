@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use App\Product;
+use App\Category;
+use App\ProductImage;
+
 class ProductsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +14,20 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Product::class, 100)->create();
+    	// factory(Category::class, 5)->create();
+     //    factory(Product::class, 100)->create();
+     //    factory(ProductImage::class, 200)->create();
+            
+            $category = factory(Category::class, 5)->create();
+            $category->each(function ($category){
+                $products = factory(Product::class, 20)->make();
+                $category->products()->saveMany($products);
+
+                $products->each(function ($p){
+                    $images = factory(ProductImage::class, 5)->make();
+                    $p->images()->saveMany($images);
+                });
+            });
+
     }
 }
