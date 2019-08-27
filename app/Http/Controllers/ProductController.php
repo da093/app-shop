@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+
 
 class ProductController extends Controller
 {
-    public function index()
+    public function show($id)
     {
-    	return view('admin.products.index'); //listado		
-    }
+    	$product = Product::find($id);
+    	$images = $product->images;
 
-    public function create()
-    {
-		return view('admin.products.create'); //formulario de registro
-    }
-     
-    public function store()
-    {
-    	//registrar el nuevo producto en la bd
+    	$imagesLeft = collect();
+    	$imagesRight = collect();
+    	foreach ($images as $key => $image) {
+    		if ($key%2==0) {
+    			$imagesLeft->push($image);
+    		}else{
+    			$imagesRight->push($image);
+    		}
+    		
+    		
+    	}
+    	return view('products.show')->with(compact('product', 'imagesLeft', 'imagesRight'));
     }
 }

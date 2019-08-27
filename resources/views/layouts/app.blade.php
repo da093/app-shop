@@ -18,7 +18,7 @@
     <!-- CSS Files -->
     <link href=" {{  asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href=" {{  asset('css/material-kit.css') }}" rel="stylesheet"/>
-
+    @yield('styles')
 </head>
 
 <body class="@yield('body-class')">
@@ -52,7 +52,16 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a href="{{ url('/home') }}">Dashboard</a>
+                                    </li>
+                                    @if(auth()->user()->admin)
+                                    <li>
+                                    <a href="{{ url('/admin/products') }}">Gestionar productos</a>
+                                    </li>
+                                    @endif
+                                    <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -62,7 +71,8 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
+                                    </li>
+                                </ul>
                             </li>
                         @endguest
                         <!-- <li>
