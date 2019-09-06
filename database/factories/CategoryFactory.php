@@ -2,9 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use Distribuidora\Model;
 use Faker\Generator as Faker;
-use App\Category;
+use Distribuidora\Category;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [

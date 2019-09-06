@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Distribuidora\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Distribuidora\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Product;
-use App\productImage;
+use Distribuidora\Product;
+use Distribuidora\productImage;
 use File;
 
 class ImageController extends Controller

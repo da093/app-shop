@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Distribuidora\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
+use Distribuidora\Product;
 
 
 class ProductController extends Controller

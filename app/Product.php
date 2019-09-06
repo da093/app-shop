@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Distribuidora;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,5 +39,6 @@ class Product extends Model
             return $this->category->name;
         return 'General';
     }
+
     
 }
