@@ -1,3 +1,4 @@
+    
 <?php
 
 use Illuminate\Database\Seeder;
@@ -13,8 +14,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Daniel Cristobal Allendes Pulgar',
-            'email' => 'r3turner_196@hotmail.com',
+            'name' => 'Daniel',
+            'email' => 'r3turner_196@hotmail..com',
             'password' => bcrypt('asd13051993'),
             'admin' => true
         ]);
